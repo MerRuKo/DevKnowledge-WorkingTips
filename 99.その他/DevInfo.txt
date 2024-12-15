@@ -1,0 +1,30 @@
+jdk 1.8
+https://www.oracle.com/java/technologies/downloads/#java8
+
+Eclipse
+https://www.eclipse.org/downloads/
+
+Oracle 11g
+https://www.oracle.com/database/technologies/xe-prior-release-downloads.html\
+
+Apache Tomcat 8.5
+https://tomcat.apache.org/download-80.cgi
+
+SQL Developer
+https://www.oracle.com/database/sqldeveloper/technologies/download/
+
+Visual Studio Code
+https://code.visualstudio.com/Download
+
+Eclipse Git clone Repogitory Authentication
+User : MerRuKo
+Password : https://github.com/settings/tokens
+にて、Studyトークンをregenerateして取得。
+
+Oracle Account（練習用パソコン）
+管理者
+User : system
+Password : 0319
+ユーザー
+User : HR
+Password : 1234
