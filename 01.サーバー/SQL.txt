@@ -1,0 +1,62 @@
+1.
+LEFT JOIN : 下位テーブル、子テーブル
+INNER JOIN : 完全な整合性 (1:1関係)
+
+
+2.
+インデックス : 
+テーブルに事前に定義しておき、クエリを実行する際にアクセスする速度を向上させる（なくても動作はする）
+
+シーケンス : 
+UNIQUEな値を生成してくれるオラクルオブジェクト（1ずつ上がる番号などに使用）
+SELECT nextval('sql_seq')
+
+
+3.
+COALESCE(コアレス) : NULLではない最初の値を取得する関数
+
+SELECT A,B,COALESCE(A,B) FROM table;
+
+A          B            COALESCE(A,B)
+1         null               1
+null       2                 2
+
+
+4.COUNT SQL文のTOTAL表示
+コンソールにTOTAL:1と表示される場合、これはクエリ結果の行数を意味する。
+また、結果が0行でもTOTALは1以上表示されることに注意。
+
+
+5.
+SELECT TO_CHAR(123) ,        -- 123
+TO_CHAR(123 , 'FM00000')     -- 00123
+
+
+6.行番号付け文法
+SELECT ROW_NUMBER() OVER PARTITION BY カラム ORDER BY カラム
+PARTITION : グループ化するカラム（省略可能）
+ORDER BY : 並べ替えるカラム（必須）
+
+
+7.ページング文法
+LIMIT : 出力する行数を制限
+OFFSET : 出力を開始する行を指定
+
+SELECT * FROM result ORDERS 
+LIMIT 10 OFFSET 0 -- 1ページ目 (0~10行)
+
+SELECT * FROM result ORDERS 
+LIMIT 10 OFFSET 10 -- 2ページ目 (10~20行)
+
+
+8.NVL()
+NULLの場合は指定された値を返し、それ以外はそのまま返す。
+
+SELECT NVL(MAX(req),0)+1 FROM board
+⇒
+MAX(req) がNULLの場合、0 + 1が返される。
+MAX(req) がNULLでない場合、元の値に1を加えた結果が返される。
+
+
+9.OracleのAND文での(+)記号
+AND条件に(+)が付いている場合、条件を満たしていなくても結果が返される。
