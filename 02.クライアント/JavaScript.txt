@@ -1,0 +1,103 @@
+1.値と型まで比較する式 (===)
+7 == 7 : ture     8 === 8 : true
+7 == "7" : true   8 === "8" : false
+7 != 7 : false    8 !== "8" : true
+
+
+2.定数の宣言
+※ JavaScriptはよく見ると、型を自動的に合わせてくれるところがPythonに似ている部分がある。
+※ varは古い文法であり、constとletは最近導入されたもの。
+
+****Never Use var !!!****
+
+定数の宣言（const：変更不可）
+const a = 3;
+
+変数の宣言（let：変更可能）
+let a = 3;
+
+
+3.配列
+const toBuy = ["potato", "tomato", "pizza");
+
+console.log(toBuy); 
+// potato tomato pizza
+
+toBuy.push("kimbab");
+
+console.log(toBuy);
+// potato tomato pizza kimbab
+
+
+4.オブジェクト
+const player = {
+   name: "nico",
+   points: 10,
+   fat: true,
+};
+
+console.log (player);
+// {name: "nico", points: 10, fat: true}
+
+player.points = player.points + 15;
+
+console. log (player.points) ;
+// 25
+
+
+5.関数
+function plus(firstNum, secondNum) {
+   console.log (firstNum + secondNum);
+}
+
+function divide(a, b) {
+   console. log(a / b);
+}
+
+plus (60, 8);
+divide(98, 20);
+
+
+6.オブジェクト + 関数
+const player = {
+   name: "nico",
+   sayHello: function (otherName) {
+     console.log ("hello " + otherName + "!“
+   },
+};
+
+console.log(player.name);
+// nico
+
+player.sayHello ("lynn");
+// hello lynn!
+
+
+7.HTML要素の取得方法
+// idで取得
+const title = document.getElementById("aa");
+
+// classで取得
+const title = document.getElementsByClassName("bb");
+
+// nameで取得
+const title = document.getElementsByName("cc");
+
+// CSSセレクタで取得（最初の1つのみ）
+const title = document.querySelector(".hello h1");
+
+// CSSセレクタで全て取得（配列形式で）
+const title = document.querySelectorAll(".hello h1");
+
+
+8.JavaScriptは常にHTMLと通信する
+document.title = “任意の値”;
+⇒ コンソールで上記を入力すると、ページタイトルがリアルタイムで「任意の値」に変更される。
+
+
+9.関数とアロー関数 (펑션과 애로우펑션)
+function add(a, b) {
+    return a + b;
+}
+
+const add = (a, b) => a + b;
