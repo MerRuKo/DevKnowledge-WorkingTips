@@ -1,0 +1,28 @@
+1.JSPもJavaである
+JSPを作成してウェブで動作させると、TomcatはJSPファイルを取得し、Javaファイルに変換する。
+このとき、変換されたファイルをApacheフォルダで確認すると、HTMLコード以外はすべてJavaコードに変わっている。
+このプロセスで、JSPを使ってデータ交換を行うために、自動的にJavaのサーブレットクラスが生成されるが、
+これがサーブレット（Servlet）となる。
+
+
+2.サーブレットとは？
+JSP = サーブレット。定義としては「ウェブクライアントからのリクエストを処理するためのHttpServletを継承したクラス」
+つまり、JSPファイルはJavaサーブレットとして動作する。
+
+
+3.EL（Expression Language）
+JSP2.0で新たに追加されたスクリプト言語。
+従来：<%= session.getAttribute("userName") %>
+EL：${username}
+
+
+4.JSTL（JSP標準タグライブラリ）
+Scriptlet（JSP内のJavaコードブロック）で、if・for・switchのようにJavaコードを使う場合がある。
+これらのJavaコードをタグ形式で記述できるようにサポートするのがJSTL。
+Scriptlet：<% if () { %> 内容 <% } %>
+JSTL：<c:if test=""> 内容 </c:if>
+
+
+5.
+id：唯一識別子。ビュー（JS、jQuery）ページでのみ使用
+name：重複可能識別子。ビューおよびコントローラーで使用
