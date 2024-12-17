@@ -1,0 +1,39 @@
+1.
+rowspan : 行結合
+colspan : 列結合
+
+
+2.
+<tr> : table row
+<th> : table header
+<td> : table data
+
+
+3.
+<link rel = "stylesheet" type="" href="">
+rel : relation
+type : 省略可能
+href : hypertext reference
+
+
+4.
+<div> : division
+<ul> : unordered List
+<li> : List Item
+
+
+5.
+JSTL活用 : 変数を保存して、状況に応じてリンクをクリックした際の遷移方式を変更する（新しいウィンドウ、自ウィンドウ）
+
+<c:choose>
+	<c:when test="${mcf:isMobileView()}">
+		<%-- スマホモードの場合同ウィンドウで遷移する --%>
+		<c:set var="target" value="_self" />
+	</c:when>
+	<c:otherwise>
+		<%-- PCモードの場合別ウィンドウで遷移する --%>
+		<c:set var="target" value="_blank" />
+	</c:otherwise>
+</c:choose>
+
+<mynavi:link href="${mjbsys.STU_MCSTUDY_MEM_REG_URL}" target="${target}" id="mcstudyMemRegistLink" cssClass="link-01">会員登録する</mynavi:link>
