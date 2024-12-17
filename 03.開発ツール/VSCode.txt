@@ -1,0 +1,15 @@
+Ctrl + Shift + L
+現在選択したテキストと同じテキストを同時に選択して、一括編集可能
+
+-----------------------------------------------------------
+
+必須インストールExtension（環境構築）
+Eclipse Keymap
+Better Material Theme Darker High Contrast
+Prettier - Code formatter
+open in browser
+
+Font
+한글 : Consolas, 'Courier New', monospace
+日本語 : Source Han Code JP
+https://github.com/adobe-fonts/source-han-code-jp/releasesで「Source code(zip)」をダウンロード
