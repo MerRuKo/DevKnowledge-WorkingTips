@@ -28,3 +28,17 @@ Password : 0319
 ユーザー
 User : HR
 Password : 1234
+
+Oracleインストール後、DBデフォルトデータ削除
+DROP TABLE REGIONS CASCADE CONSTRAINTS;
+DROP TABLE COUNTRIES CASCADE CONSTRAINTS;
+DROP TABLE LOCATIONS CASCADE CONSTRAINTS;
+DROP TABLE DEPARTMENTS CASCADE CONSTRAINTS;
+DROP TABLE JOBS CASCADE CONSTRAINTS;
+DROP TABLE EMPLOYEES CASCADE CONSTRAINTS;
+DROP TABLE JOB_HISTORY CASCADE CONSTRAINTS;
+commit;
+
+select resource_name,resource_type,limit from dba_profiles; -- PASSWORD_LIFE_TIME（アカウントのパスワード変更間隔）を確認 (デフォルト180日)
+alter profile default limit PASSWORD_LIFE_TIME unlimited; -- アカウントのパスワード変更間隔をunlimitedに変更
+select resource_name,resource_type,limit from dba_profiles; -- PASSWORD_LIFE_TIMEが180からUNLIMITEDに変わっている(定期変更削除)
