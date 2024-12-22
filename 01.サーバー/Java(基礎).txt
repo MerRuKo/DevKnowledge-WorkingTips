@@ -22,3 +22,15 @@ Tv[] tvArr = new Tv[3]; // オブジェクト配列
 tvArr [0] = new Tv();
 tvArr [1] = new Tv();
 tvArr [2] = new Tv();   // このように、個別にインスタンスを生成して入れる必要がある。
+
+
+5.
+class Variables
+{
+   int iv;           // インスタンス変数(オブジェクト生成後に使用可能)
+   static int cv;    // クラス変数(いつでも使用可能)
+
+    void method () {
+        int Iv = 0;  // メソッド変数(メソッド内でのみ使用可能)
+     }
+}
