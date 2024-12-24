@@ -52,3 +52,11 @@ p[0] = new TV();
 p[1] = new Computer();
 p[2] = new Audio();
 ------------------------------------
+
+
+7.拡張for文
+int[] arr = {1, 2, 3, 4};
+for (int i : arr) {
+  System.out.println(i);
+}
+// 一言で、arrの奴らを無くなるまでiに入れる。
