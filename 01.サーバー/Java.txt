@@ -60,3 +60,13 @@ for (int i : arr) {
   System.out.println(i);
 }
 // 一言で、arrの奴らを無くなるまでiに入れる。
+
+
+8.
+全ての例外の最上位クラス : Exception
+なので、例外の種類が予想できない場合はExceptionを使ったらよい。
+try {
+  // 実行するコード
+} catch (Exception e) {
+  e.printStackTrace(); // どんな例外もキャッチできる
+}
