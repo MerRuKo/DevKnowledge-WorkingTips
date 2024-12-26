@@ -70,3 +70,9 @@ try {
 } catch (Exception e) {
   e.printStackTrace(); // どんな例外もキャッチできる
 }
+
+
+9.
+メソッド内名に「throws」をつけたら、呼び出したメソッド側で「try-catch」が強制される。
+throw : 特定の例外を意図的に発生させるときに使用
+throws : 自分を呼び出した上位メソッドにエラーを投げる
