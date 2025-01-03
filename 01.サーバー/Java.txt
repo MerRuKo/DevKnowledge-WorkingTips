@@ -82,3 +82,10 @@ throws : 自分を呼び出した上位メソッドにエラーを投げる
 ・List : 順序あり、重複あり
 ・Set : 順序なし、重複なし
 ・Map : 順序あり、キーは重複なし、値は重複あり
+
+
+11.Listはインターフェースで、主な実装クラスは以下の通り
+・List<Dto> list1 = new ArrayList<Dto>();
+・List<Dto> list2 = new LinkedList<Dto>();
+・List<Dto> list3 = new Vector<Dto>();
+・List<Dto> list4 = new List<Dto>(); // エラー
