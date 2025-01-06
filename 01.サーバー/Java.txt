@@ -96,3 +96,8 @@ InfoDTO infoDTO1 = new InfoDTO();
 List<InfoDTO> dtoList = new ArrayList<>;
 dtoList.set(0,infoDTO1) // Error
 dtoList.add(infoDTO1)   // OK
+
+
+13.
+Junitで意図的に例外を発生させる方法
+result = new IOException(anyString)
