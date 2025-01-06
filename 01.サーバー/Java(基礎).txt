@@ -94,3 +94,25 @@ staticメソッド(クラスメソッド、静的メソッド)
 
 引数付きコンストラクタ Card(int a, int b) {}
 明示的に定義する必要がある。
+
+
+13.別のコンストラクタを呼び出す時には `this()` を使用する。
+class Car2 {
+  String color;
+  String gearType;
+  int door;
+
+  Car2() {
+    this("white", "auto", 4);
+  }
+
+  Car2(String color) {
+    this (color, "auto", 4);
+  }
+
+  Car2(String color, String gearType, int door) {
+    this.color = color;
+    this.gearType = gearType;
+    this.door = door;
+  }
+}
