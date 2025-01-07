@@ -101,3 +101,13 @@ dtoList.add(infoDTO1)   // OK
 13.
 Junitで意図的に例外を発生させる方法
 result = new IOException(anyString)
+
+
+14.
+定数を前に置いて比較することで、nullによるエラーを防ぐ。
+
+eventInfo.getSeason().equals(MEM_JOIN_EVENT_SEASON_CD_HON)
+// NullPointerExceptionの可能性あり
+⇒
+MEM_JOIN_EVENT_SEASON_CD_HON.equals(eventInfo.getSeason())
+// 安全な方法
