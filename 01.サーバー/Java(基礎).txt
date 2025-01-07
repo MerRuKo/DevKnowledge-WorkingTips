@@ -116,3 +116,12 @@ class Car2 {
     this.door = door;
   }
 }
+
+
+14.参照変数 this
+・インスタンス自身を指す参照変数。
+・this参照変数とthis()コンストラクタは完全に別物。
+
+class MyMath2 {
+  long a, b // this.a, this.b ← 本当の名前
+}
