@@ -125,3 +125,10 @@ class Car2 {
 class MyMath2 {
   long a, b // this.a, this.b ← 本当の名前
 }
+
+
+15.
+private SonySpeaker speaker;　// 変数宣言
+speaker = new SonySpeaker();　// インスタンス生成+初期化
+⇒
+SonySpeaker speaker = new SonySpeaker();　// 変数宣言+インスタンス生成+初期化
