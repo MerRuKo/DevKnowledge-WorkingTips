@@ -132,3 +132,24 @@ private SonySpeaker speaker;　// 変数宣言
 speaker = new SonySpeaker();　// インスタンス生成+初期化
 ⇒
 SonySpeaker speaker = new SonySpeaker();　// 変数宣言+インスタンス生成+初期化
+
+
+16.初期化
+・自動初期化 : 宣言すると、intは0、オブジェクトはnullなど。
+・簡単初期化 : =で指定。
+・複雑初期化 : ブロックやコンストラクタで指定。
+
+クラス変数の初期化タイミング : クラスが初めてロードされた時、1度だけ。
+インスタンス変数の初期化タイミング : インスタンスが生成されるたび。
+
+class InitTest {
+  static int cv = 1;   // 明示的初期化
+  int iv = 1;          // 明示的初期化
+
+  static { cv = 2; }   // クラス初期化ブロック
+  { iv = 2; }          // インスタンス初期化ブロック
+
+  InitTest() {         // コンストラクタ
+    iv = 3;
+  }
+}
