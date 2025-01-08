@@ -116,3 +116,12 @@ MEM_JOIN_EVENT_SEASON_CD_HON.equals(eventInfo.getSeason())
 15.三項演算子 (if-elseの変わり)
 int endIdx = startIdx + NUMBER_1000 < lastIdx ? // 条件式 ? 
              startIdx + NUMBER_1000 : lastIdx;  // true時 : false時
+
+
+16.
+Integerオブジェクトは、-128～127の範囲で作られた場合、キャッシュされる。
+この場合、同じ値でも参照先が違うので、if分岐がうまく作動しないケースがあるので注意。
+
+Integer a = Integer.valueOf(49);    // キャッシュされたインスタンス
+Integer b = new Integer(49);        // 新しいインスタンス
+System.out.println(a == b);         // falseとなる
