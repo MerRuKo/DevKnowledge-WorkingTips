@@ -111,3 +111,8 @@ eventInfo.getSeason().equals(MEM_JOIN_EVENT_SEASON_CD_HON)
 ⇒
 MEM_JOIN_EVENT_SEASON_CD_HON.equals(eventInfo.getSeason())
 // 安全な方法
+
+
+15.三項演算子 (if-elseの変わり)
+int endIdx = startIdx + NUMBER_1000 < lastIdx ? // 条件式 ? 
+             startIdx + NUMBER_1000 : lastIdx;  // true時 : false時
