@@ -153,3 +153,25 @@ class InitTest {
     iv = 3;
   }
 }
+
+
+17.オーバーローディング (Overloading) が成立する条件
+・メソッド名が同じであること。
+・引数の数、または、型が異なること。
+・戻り値の型は関係ない。
+
+
+18.
+オーバーロード (overloading): 既存にない新しいメソッドを定義すること。 (new)
+オーバーライド (overriding): 継承されたメソッドの内容を変更すること。 (modify)
+
+class Parent {
+  void parentMethod() {}
+}
+
+class Child extends Parent {
+  void parentMethod() {}       // オーバーライド  
+  void parentMethod(int i) {}  // オーバーロード  
+  void childMethod() {}        // メソッド定義  
+  void childMethod(int i) {}   // オーバーロード  
+}
