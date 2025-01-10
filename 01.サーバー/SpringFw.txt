@@ -63,3 +63,28 @@ Spring設定ファイルで分離して管理する機能。
                   method="aroundLog" />
    <aop: aspect>
 </aop: contig>
+
+
+10.
+web.xml
+役割：ウェブアプリケーションの全般的な設定ファイル（デプロイメントディスクリプター）
+場所：/WEB-INF/web.xml
+機能：サーブレットやフィルターのマッピング、リスナー登録、基本的なウェブアプリケーション設定（例：エンコーディングフィルター、エラーページ、ウェルカムファイルなど）
+
+servlet-context.xml
+役割：Spring MVC 専用の設定ファイル
+場所：/WEB-INF/spring/servlet-context.xml
+機能：DispatcherServletに関連する設定、View Resolver、コントローラーマッピング、静的リソースのハンドリング
+
+applicationContext.xml
+役割：Springの全体的なアプリケーションコンテキスト設定ファイル
+場所：/WEB-INF/spring/applicationContext.xml または src/main/resources
+機能：サービス、DAO、Bean定義、データソース、トランザクション管理、AOP設定
+
+pom.xml
+役割：Mavenプロジェクトの依存関係とビルド設定ファイル
+場所：プロジェクトのルートディレクトリ
+機能：プロジェクトの依存関係管理、プラグインおよびビルド設定
+
+SpringBootに移行することで、XMLベースの設定はJavaConfigやapplication.ymlに置き換えられる傾向があるが、
+レガシープロジェクトでは依然として有用である。
