@@ -175,3 +175,21 @@ class Child extends Parent {
   void childMethod() {}        // メソッド定義  
   void childMethod(int i) {}   // オーバーロード  
 }
+
+
+19.参照変数 super
+親のメンバーと自分のメンバーを区別するために使用。
+
+class Main {
+  public static void main(String args[]) {
+    Child c = new Child();
+  }
+}
+
+class Parent { 
+  int x = 10;   // super.x   
+}
+
+class Child extends Parent {
+  int x = 20;   // this.x
+}
