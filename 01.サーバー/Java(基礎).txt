@@ -207,3 +207,7 @@ class Child extends Parent {
 例）java.lang.String
 ・jar : クラスを圧縮したファイル。
 例）rt.jar (すべての基本クラスが圧縮されているファイル。Java9以降はない。)
+
+
+22.
+publicクラスでなくても、mainメソッドを持てる。
