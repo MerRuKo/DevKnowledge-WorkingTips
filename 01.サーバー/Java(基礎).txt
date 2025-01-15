@@ -210,4 +210,17 @@ class Child extends Parent {
 
 
 22.
-publicクラスでなくても、mainメソッドを持てる。
+publicクラスでなくても、mainメソッドを
+
+
+23.
+インポート
+・他のパッケージのクラスを使用するときに必要。
+・同じパッケージ内のクラスはインポート不要。
+・java.lang パッケージのクラスはインポート不要 (例: String, Math, int, Exception)
+
+staticインポート
+・クラス名を省略可能にする。
+例）import static java.lang.Math.random;
+　　System.out.println(Math.random( ));
+⇒　System.out.println(random());持てる。
