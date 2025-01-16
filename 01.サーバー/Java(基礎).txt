@@ -223,4 +223,10 @@ staticインポート
 ・クラス名を省略可能にする。
 例）import static java.lang.Math.random;
 　　System.out.println(Math.random( ));
-⇒　System.out.println(random());持てる。
+⇒　System.out.println(random());
+
+
+24.
+abstract class AbstractTest {　// 抽象クラス : 抽象メソッドを含むクラス
+  abstract void move();　　　　　// 抽象メソッド : 実装部のないメソッド 
+}持てる。
