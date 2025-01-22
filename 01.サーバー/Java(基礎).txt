@@ -243,3 +243,12 @@ abstract class AbstractTest {　// 抽象クラス : 抽象メソッドを含む
 ・default : 同一パッケージ内のみアクセス可能。
 ・protected : 同一パッケージ内 + 他のパッケージの子クラスがアクセス可能。
 ・public : アクセス制限なし。
+
+
+27.
+多態性 (polymorphism)
+複数の形態を持つ能力。
+親タイプの参照変数で子タイプのオブジェクトを扱う。
+// 親：SmartTv　子：SmartTv
+TV t = new SmartTv();  // OK
+SmartTv s = new TV();  // エラー
