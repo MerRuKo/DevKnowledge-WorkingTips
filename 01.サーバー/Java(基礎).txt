@@ -252,3 +252,16 @@ abstract class AbstractTest {　// 抽象クラス : 抽象メソッドを含む
 // 親：SmartTv　子：SmartTv
 TV t = new SmartTv();  // OK
 SmartTv s = new TV();  // エラー
+
+
+28.参照変数の型変換
+参照変数が使えるメンバーの数を調整する。親子関係なら型変換可能。
+
+class Car { }
+class FireEngine extends Car { }
+class Ambulance extends Car { }
+
+FireEngine f = new FireEngine();
+Car c = (Car)f;                   // OK: 親タイプへ変換 (省略可能)
+FireEngine f2 = (FireEngine)c;    // OK: 子タイプへ変換 (省略不可)
+Ambulance a = (Ambulance)f;       // エラー: 他の子クラス間は不可
