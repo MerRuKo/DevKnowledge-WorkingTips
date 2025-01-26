@@ -265,3 +265,12 @@ FireEngine f = new FireEngine();
 Car c = (Car)f;                   // OK: 親タイプへ変換 (省略可能)
 FireEngine f2 = (FireEngine)c;    // OK: 子タイプへ変換 (省略不可)
 Ambulance a = (Ambulance)f;       // エラー: 他の子クラス間は不可
+
+
+29.
+// 親：Car　子：FireEngine
+Car myCar = new FireEngine();
+⇒
+①新しい FireEngine() オブジェクトがメモリ上に生成。
+②メモリアドレス(例: 0x100)を親クラス型参照変数 myCar に保存。
+(参照変数 = リモコン, オブジェクト = 実際のテレビ)
