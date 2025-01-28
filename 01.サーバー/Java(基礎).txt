@@ -274,3 +274,57 @@ Car myCar = new FireEngine();
 ①新しい FireEngine() オブジェクトがメモリ上に生成。
 ②メモリアドレス(例: 0x100)を親クラス型参照変数 myCar に保存。
 (参照変数 = リモコン, オブジェクト = 実際のテレビ)
+
+
+30.パラメータの多態性
+--------------------------------------------------------------------------------------------
+class Product {
+　　int price;                             // 製品の価格
+　　int bonusPoint;                        // 製品購入時のボーナスポイント
+
+　　Product(int price) {
+　　　　this.price = price;
+　　　　bonusPoint = (int)(price/10.0);     // ボーナスポイントは製品価格の10％
+　　}
+}
+--------------------------------------------------------------------------------------------
+class Tv extends Product {
+　　Tv() {
+　　　　// 親クラスのコンストラクタを呼出
+　　　　super(100);                         // Tvの価格を100に
+　　}
+　　// ObjectクラスのtoString()をオーバーライド
+　　public String toString() { return "Tv"; }
+}
+--------------------------------------------------------------------------------------------
+class Computer extends Product {
+　　Computer() { super(200); }
+　　public String toString() { return "Computer"; }
+}
+--------------------------------------------------------------------------------------------
+class Buyer { 				                // 顧客、製品を買う人
+	int money = 1000; 		              // 所持金
+	int bonusPoint = 0; 	　　           // ボーナスポイント
+
+	void buy(Product p) {
+		if (money < p.price) {
+			System.out.println("残額が不足していますので、製品を買えません。");
+			return;
+		}
+		money -= p.price; 			          // 所持金から製品の価格を引く
+		bonusPoint += p.bonusPoint; 　   　// 製品のボーナスポイントを追加する
+		System.out.println(p + "を購入しました。");
+	}
+}
+--------------------------------------------------------------------------------------------
+class Ex7_8 {
+	public static void main(String arg[]) {
+        	Buyer b = new Buyer();
+        
+        	b.buy(new Tv1());
+        	b.buy(new Computer()); 
+        
+        	System.out.println("現在の残額は" + b.money + "です。");
+        	System.out.println("現在のボーナスポイントは" + b.bonusPoint + "です。");
+}
+--------------------------------------------------------------------------------------------
