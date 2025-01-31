@@ -125,3 +125,25 @@ Integerオブジェクトは、-128～127の範囲で作られた場合、キャ
 Integer a = Integer.valueOf(49);    // キャッシュされたインスタンス
 Integer b = new Integer(49);        // 新しいインスタンス
 System.out.println(a == b);         // falseとなる
+
+
+17.コレクション（Collection）インターフェースの実体
+Iterator：コレクション内のデータにアクセスするため使う。
+ListIterator：両方向の移動ができるIterator（使うこと無い）
+Enumeration：旧バージョンのIterator（使うこと無い）
+
+Iteratorの代表的なメソッド
+boolean hasNext()：次に読み込めるデータがあればtrue。
+Object next()：次のデータを読み込む。
+void remove()：next()で読み込んだデータを削除。next()の後続でのみ使える。
+
+ArrayList list = new ArrayList();
+list.add("1");
+list.add("2");
+// ListやSetもCollectionインターフェースの実体なので、iterator()メソッドを持っている。
+// Listインスタンスをiterator()し、Iteratorオブジェクト化して格納。
+Iterator it = list.iterator();
+// Iteratorオブジェクトのメソッドを使えるようになる。
+While(it.hasNext()){
+  ~
+}
