@@ -147,3 +147,30 @@ Iterator it = list.iterator();
 While(it.hasNext()){
   ~
 }
+
+18.
+// 1. `wishAreaTextList` リストを宣言し、初期化する。
+List<String> wishAreaTextList = memWorkRegionListDisp.stream()
+    // 2. フィルタリング: `mvSrTCrpHqRegionList` にある `hqAddrRegionCd` と
+    //    `memWorkRegionListDisp` にある `workAddrRegionCd` が一致する要素のみを残す。
+    .filter(getMemWorkRegionDto -> mvSrTCrpHqRegionList.stream()
+        .anyMatch(mvSrTCrpHqRegion -> 
+            mvSrTCrpHqRegion.getHqAddrRegionCd()
+            .equals(getMemWorkRegionDto.getWorkAddrRegionCd())))
+    // 3. フィルタリングされた要素から `workAddrRegionText` の値を取得し、新しいリストに変換する。
+    .map(GetMemWorkRegionDto::getWorkAddrRegionText)
+    .collect(Collectors.toList());
+
+memWorkRegionListDisp リストを stream() を使って処理
+→ このリストの各要素（GetMemWorkRegionDto）を1つずつ取り出し、次の処理を行う。
+
+filter() を使用した条件フィルタリング
+→ mvSrTCrpHqRegionList の hqAddrRegionCd と
+→ memWorkRegionListDisp の workAddrRegionCd を比較し、
+→ 一致する場合のみ残す。
+
+map() を使って workAddrRegionText の値を取得
+→ フィルタリングされた要素の workAddrRegionText の値を取得し、新しいリストに変換。
+
+結果を wishAreaTextList に保存
+→ 最終的に wishAreaTextList にはフィルタリングされた要素の workAddrRegionText の値が格納される。
