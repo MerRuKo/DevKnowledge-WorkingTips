@@ -1,28 +1,28 @@
-1.
+●
 rowspan : 行結合
 colspan : 列結合
 
 
-2.
+●
 <tr> : table row
 <th> : table header
 <td> : table data
 
 
-3.
+●
 <link rel = "stylesheet" type="" href="">
 rel : relation
 type : 省略可能
 href : hypertext reference
 
 
-4.
+●
 <div> : division
 <ul> : unordered List
 <li> : List Item
 
 
-5.
+●
 JSTL活用 : 変数を保存して、状況に応じてリンクをクリックした際の遷移方式を変更する（新しいウィンドウ、自ウィンドウ）
 
 <c:choose>

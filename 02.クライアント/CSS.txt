@@ -1,4 +1,4 @@
-1.セレクタ (선택자)
+● セレクタ (선택자)
 <!DOCTYPE html>
 <html lang="en">
 <head>

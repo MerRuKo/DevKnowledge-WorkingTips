@@ -1,32 +1,42 @@
-Ajax
+● Ajax
 JavaScriptのライブラリ
 部分的な再読み込み、セキュリティ性あり、history管理可能
 
-Json
+
+● Json
 JavaScript式のデータ表現式、Key-Value式、単純で明確、
 タイポに対応できないため安定性が低い、コメントアウトが書けない、主にデータ交換に使用
 
-XML
+
+● XML
 eXtensible Markup Language、Tag形式、コードが複雑、
 タイポに対応可能で安定性が高いコメントアウト記述可能、主にサーバー環境の定義に使用
 
-MyBatis
+
+● MyBatis
 JavaのDBフレームワーク（SI業界の標準）
 
+
+●
 同期：リクエスト後にレスポンスが来てから次の動作を実行
 非同期：リクエスト後にレスポンスを待たず次の動作を実行
 例）大容量のファイルをアップロードして登録ボタンを押す場合、
 　　同期：画面がそのまま停止（フリーズのように見える）
 　　非同期：ローディング画像を表示して視認性を確保可能
 
-Maven
+
+● Maven
 Apacheが開発したJavaプロジェクトビルド自動化ツール
 pom.xmlを用いて標準化されたビルドシステムでプロジェクトを管理し、ライブラリの管理が容易になる
 同様のビルド自動化ツールとしてAntやGradleがある
 
+
+●
 Queue（キュー）：底が開いた箱、入った順に出る（FIFO: 先入れ先出し）
 Stack（スタック）：底が閉じた箱、上に積み重ねる（LIFO: 後入れ先出し）
 
+
+●
 JVM (Java Virtual Machine)
 Javaソースコードから作成される、.classファイルを実行可能にする
 
@@ -38,14 +48,23 @@ JDK (Java Development Kit)
 Java開発を行う場合に必要
 つまり、JRE + 開発用ツール
 
-JUnit
+
+● JUnit
 Javaのテストフレームワーク
 @Test：テストメソッドを実行
 @Ignore：テストメソッドをスキップ
 @Before：テストメソッド実行前に前処理
 
-冪等性 (멱등성, Idempotent)
+
+● 冪等性 (멱등성, Idempotent)
 ある操作を何度繰り返しても結果が同じになるという性質
+
+
+●
+REST (REpresentational State Transfer)
+クライアントがURIとHTTPヘッダーを含めたリクエストを送ったら、
+サーバーがJSON形式でレスポンスを返却するウェブサイトの通信アーキテクチャ。
+主要メソッドにはGETとPOSTがある。
 
 GET
 主に読み取りや検索時に使用
@@ -58,12 +77,15 @@ POST
 データをHTTPメッセージのボディに含めて送信
 非冪等的に設計される
 
-テスト種類
+
+● テスト種類
 PT (Program Test, Part Test)：単体テスト
 IT (Integration Test)：結合テスト
 ST (System Test)：総合テスト
 MT (Migration Test)：移行テスト
 
+
+●
 キャッシュ（Cache）
 ローカルに保存
 画像、音声、CSS/JSの一時ストレージ
@@ -83,9 +105,11 @@ MT (Migration Test)：移行テスト
 ブラウザが閉じると削除される
 サーバーを介するため速度が遅くなり、乱用時はパフォーマンス低下
 
-スタブ (Stub)
+
+● スタブ (Stub)
 外部システムと接続が必要だが、本番環境でない場合に仮のサーバーとして作成
 Mockと似ているが、より高機能なプログラム
 
-SFTP (SSH File Transfer Protocol)
+
+● SFTP (SSH File Transfer Protocol)
 FileZilla、WinSCP、Puttyなどのツールが代表例

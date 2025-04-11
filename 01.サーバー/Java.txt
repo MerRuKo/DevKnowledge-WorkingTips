@@ -1,4 +1,4 @@
-1.
+●
 コントローラー：リクエストを見て、どのサービスを呼び出すかを判断
 ・入力チェック(物理チェック)
 ・権限チェック(論理チェック)
@@ -10,13 +10,13 @@
 ・マッパーの呼び出し
 
 
-2.staticを付ける基準
+● staticを付ける基準
 変数 : 共通属性の場合
 メソッド : インスタンス変数/インスタンスメソッドを使わないメソッド。
 staticメソッドはインスタンスメソッドを呼び出せない。
 
 
-3.
+●
 Q. staticメソッドはstaticメソッドを呼び出せるか？
 A. はい。
 Q. staticメソッドはインスタンス変数を使用可能か？
@@ -27,18 +27,18 @@ Q. なぜstaticメソッドはインスタンスメンバーを使えないの�
 A. オブジェクトが存在するかどうか分からないから。
 
 
-4.カプセル化の基本 (望ましいコーディング方法)
+● カプセル化の基本 (望ましいコーディング方法)
 ・変数 : privateで定義。
 ・メソッド : publicで定義。
 ・値の操作は必ずメソッドを通じて行うようにする。（get,set）
 
 
-5.instanceof 演算子
+● instanceof 演算子
 型変換可能かを確認する演算子。
 可能ならtrueを返す。
 
 
-6.複数のオブジェクトを配列で管理
+● 複数のオブジェクトを配列で管理
 ------------------------------------
 // 親クラス　　　子クラス
 Product p1 = new TV();
@@ -54,7 +54,7 @@ p[2] = new Audio();
 ------------------------------------
 
 
-7.拡張for文
+● 拡張for文
 int[] arr = {1, 2, 3, 4};
 for (int i : arr) {
   System.out.println(i);
@@ -62,7 +62,7 @@ for (int i : arr) {
 // 一言で、arrの奴らを無くなるまでiに入れる。
 
 
-8.
+●
 全ての例外の最上位クラス : Exception
 なので、例外の種類が予想できない場合はExceptionを使ったらよい。
 try {
@@ -72,38 +72,38 @@ try {
 }
 
 
-9.
+●
 メソッド内名に「throws」をつけたら、呼び出したメソッド側で「try-catch」が強制される。
 throw : 特定の例外を意図的に発生させるときに使用
 throws : 自分を呼び出した上位メソッドにエラーを投げる
 
 
-10.Collectionの主要インターフェース
+● Collectionの主要インターフェース
 ・List : 順序あり、重複あり
 ・Set : 順序なし、重複なし
 ・Map : 順序あり、キーは重複なし、値は重複あり
 
 
-11.Listはインターフェースで、主な実装クラスは以下の通り
+● Listはインターフェースで、主な実装クラスは以下の通り
 ・List<Dto> list1 = new ArrayList<Dto>();
 ・List<Dto> list2 = new LinkedList<Dto>();
 ・List<Dto> list3 = new Vector<Dto>();
 ・List<Dto> list4 = new List<Dto>(); // エラー
 
 
-12.ArrayListの追加はaddだ
+● ArrayListの追加はaddだ
 InfoDTO infoDTO1 = new InfoDTO();
 List<InfoDTO> dtoList = new ArrayList<>;
 dtoList.set(0,infoDTO1) // Error
 dtoList.add(infoDTO1)   // OK
 
 
-13.
+●
 Junitで意図的に例外を発生させる方法
 result = new IOException(anyString)
 
 
-14.
+●
 定数を前に置いて比較することで、nullによるエラーを防ぐ。
 
 eventInfo.getSeason().equals(MEM_JOIN_EVENT_SEASON_CD_HON)
@@ -113,12 +113,12 @@ MEM_JOIN_EVENT_SEASON_CD_HON.equals(eventInfo.getSeason())
 // 安全な方法
 
 
-15.三項演算子 (if-elseの変わり)
+● 三項演算子 (if-elseの変わり)
 int endIdx = startIdx + NUMBER_1000 < lastIdx ? // 条件式 ? 
              startIdx + NUMBER_1000 : lastIdx;  // true時 : false時
 
 
-16.
+●
 Integerオブジェクトは、-128～127の範囲で作られた場合、キャッシュされる。
 この場合、同じ値でも参照先が違うので、if分岐がうまく作動しないケースがあるので注意。
 
@@ -127,7 +127,7 @@ Integer b = new Integer(49);        // 新しいインスタンス
 System.out.println(a == b);         // falseとなる
 
 
-17.コレクション（Collection）インターフェースの実体
+● コレクション（Collection）インターフェースの実体
 Iterator：コレクション内のデータにアクセスするため使う。
 ListIterator：両方向の移動ができるIterator（使うこと無い）
 Enumeration：旧バージョンのIterator（使うこと無い）
@@ -148,7 +148,8 @@ While(it.hasNext()){
   ~
 }
 
-18.
+
+●
 // 1. `wishAreaTextList` リストを宣言し、初期化する。
 List<String> wishAreaTextList = memWorkRegionListDisp.stream()
     // 2. フィルタリング: `mvSrTCrpHqRegionList` にある `hqAddrRegionCd` と

@@ -1,52 +1,52 @@
-1.コンテナ(Container)：
+● コンテナ(Container)：
 Springの設定ファイルであるApplicationContextを読み込んで、
 アプリケーションの実行時にBean（オブジェクト）を自動的に生成し、管理する。
 
 
-2.Setterインジェクション
+● Setterインジェクション
 <bean id="tv" class="SamsungTV">
    <property name= "speaker" ref="apple" />
    <property name= "price" value="270000" />
 </bean>
 
 
-3.pネームスペースインジェクション
+● pネームスペースインジェクション
 <bean id="tv" class="SamsungTV" p:speaker-ref="sony" p:price= "2700000"/>
 
 <bean id-"sony" class="SonySpeaker"/> <bean id="apple" class="AppleSpeaker"/>
 
 
-4.
+●
 Spring設定ファイルで<bean>を使用せずにオブジェクトを自動生成するには、<context:component-scan/>を定義。
 この設定により、クラスパスをスキャンして@Componentが付けられたクラスを自動的にオブジェクトとして生成します。
 
 <context: component -scan base-package="com.springbok.biz" />
 
 
-5.@Component
+● @Component
 Spring設定ファイルで<context:component-scan>を設定していれば、
 クラス宣言部に@Componentを付けるだけでオブジェクトが自動登録される。
 これにより、<bean>タグを個別に記述する必要が無くなる。
 
 
-6.依存性注入(DI)関連アノテーション
+● 依存性注入(DI)関連アノテーション
 @Autowired : 指定された型のオブジェクトを自動的に見つけて注入。主に変数の上に宣言。
 @Qualifier("apple") : 特定のオブジェクト名を指定して注入。@Autowiredの下に宣言（2行で使用）。
 @Inject(name="apple") または @Resource(name="apple") : @Autowiredと@Qualifierの機能を組み合わせたもの。
 
 
-7.@Componentを継承した3つの主なアノテーション
+● @Componentを継承した3つの主なアノテーション
 @Service : ビジネスロジックを処理するServiceクラスに使用。
 @Repository : DAO（データベースアクセスオブジェクト）クラスに使用。DAO機能に適した例外処理が含まれている。
 @Controller : ユーザーのリクエストを処理するControllerクラスに使用。
 
 
-8.
+●
 @Repository（デフォルトアノテーション）を設定したとしても特に問題が起こったりはしない。
 ただ、もっとクラスの役割に相応しいアノテーションを付けた方が優れた例外処理ができる。
 
 
-9.AOP (Aspect Oriented Programming)
+● AOP (Aspect Oriented Programming)
 ビジネスメソッド（ロジックやDB操作などの「核心関心」）や、
 補助メソッド（例外処理や前後処理などの「横断関心」）を、
 Spring設定ファイルで分離して管理する機能。
@@ -65,7 +65,7 @@ Spring設定ファイルで分離して管理する機能。
 </aop: contig>
 
 
-10.
+●
 web.xml
 役割：ウェブアプリケーションの全般的な設定ファイル（デプロイメントディスクリプター）
 場所：/WEB-INF/web.xml

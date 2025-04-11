@@ -1,14 +1,15 @@
+● 環境構築ダウンロードURL
 jdk 1.8
 https://www.oracle.com/java/technologies/downloads/#java8
 
 Eclipse
 https://www.eclipse.org/downloads/
 
-Oracle 11g
-https://www.oracle.com/database/technologies/xe-prior-release-downloads.html\
-
 Apache Tomcat 8.5
 https://tomcat.apache.org/download-80.cgi
+
+Oracle 11g
+https://www.oracle.com/database/technologies/xe-prior-release-downloads.html\
 
 SQL Developer
 https://www.oracle.com/database/sqldeveloper/technologies/download/
@@ -16,14 +17,17 @@ https://www.oracle.com/database/sqldeveloper/technologies/download/
 Visual Studio Code
 https://code.visualstudio.com/Download
 
-Eclipse Git clone Repogitory Authentication
+Visual Studio 2022
+https://visualstudio.microsoft.com/ko/vs/
+
+
+● Eclipse Git clone Repogitory Authentication
 User : MerRuKo
 Password : https://github.com/settings/tokens
 にて、Studyトークンをregenerateして取得。
 
-----------------------------------------------------------------------------------------
 
-1. Oracle Account（練習用パソコン）
+● Oracle Account（練習用パソコン）
 ① 管理者
 User : 管理系（system、sysなど）
 Password : 0319
@@ -32,7 +36,7 @@ User : HR
 Password : 1234
 
 
-2. ORA-28001 : the password has expiredの解決
+● ORA-28001 : the password has expiredの解決
 ① 満了したアカウントのパスワードを変更する
 1. cmdにて「 sqlplus / as sysdba 」で、sysdbaとしてログイン
 2. 「 SELECT * FROM DBA_USERS WHERE USERNAME = 'アカウントネーム'; 」で、EXPIRY_DATEを確認する
@@ -43,7 +47,7 @@ alter profile default limit PASSWORD_LIFE_TIME unlimited;     -- アカウント
 select resource_name,resource_type,limit from dba_profiles;   -- PASSWORD_LIFE_TIMEが180からUNLIMITEDに変わっている(定期変更削除)
 
 
-3. Oracleの管理系アカウントと権限
+● Oracleの管理系アカウントと権限
 ① アカウント
 sys ： Oracleシステムの基盤となるData dictionaryの持ち主。アカウントと言うよりOracleシステムの管理者。DBの生成と削除が可能。
 system ： sysと同じだが、DBの生成と削除はできない。

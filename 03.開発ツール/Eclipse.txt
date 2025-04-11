@@ -1,69 +1,46 @@
-Ctrl + H
-ソース検索
+● ショートカットキー
+Ctrl + H : ソース検索
+Ctrl + D : 1行削除
+Ctrl + Shift + F : コード自動整列（フォーマット）
+Ctrl + Shift + O : 未使用インポート削除＆自動インポート
+Ctrl + Shift + R : ファイル名検索
+Ctrl + Shift + G : メソッドやフィールド参照検索
+Ctrl + Alt + ↑↓ : 上下コード複製
+Ctrl + 2 してから R : 選択したコード一括変更
+Alt + ↑↓ : コードの上下移動
+Alt + ←→ : 確認前後のコードに移動
+syso/sop 入力後 Ctrl + Space : System.out.println 自動完成
+Ctrl + F11 : Java Applicationとしてクラスを実行
+F11 : Java Applicationとしてクラスをデバッグ実行
+Alt + Shift + T : インターフェース自動生成
+F3 : インポートされたファイルへ移動（Ctrl + クリック不可時）
 
-Ctrl + D
-1行削除
 
-Ctrl + Shift + F
-コード自動整列（フォーマット）
+● Project Explorer → Link with Editor チェックを必須に設定
 
-Ctrl + Shift + O
-未使用インポート削除＆自動インポート
 
-Ctrl + Shift + R
-ファイル名検索
-
-Ctrl + Shift + G
-メソッドやフィールド参照検索
-
-Ctrl + Alt + ↑↓
-上下コード複製
-
-Ctrl + 2 してから R
-選択したコード一括変更
-
-Alt + ↑↓
-コードの上下移動
-
-Alt + ←→
-確認前後のコードに移動
-
-syso/sop 入力後 Ctrl + Space
-System.out.println 自動完成
-
-Ctrl + F11
-Java Applicationとしてクラスを実行
-
-F11
-Java Applicationとしてクラスをデバッグ実行
-
-Alt + Shift + T
-インターフェース自動生成
-
-F3
-インポートされたファイルへ移動（Ctrl + クリック不可時）
-
------------------------------------------------------------
-
-Project Explorer → Link with Editor チェックを必須に設定
-
-Eclipseメモリ使用量の表示
+● Eclipseメモリ使用量の表示
 Window → Preferences → General → Show Heap Status をチェック
 
-デバッグ関連
+
+● デバッグ関連
 ブレークポイント作成：コード行の左端をダブルクリック
 デバッグ開始：デバッグモードでサーバー起動後、該当ロジックを実行
 次のブレークポイントまで実行：F8
 次の1行へ実行：F6
 メソッド内部へ実行：F5
 
-ローカルでページが開かない場合
+
+● ローカルでページが開かない場合
 Tomcat設定で「Add and Remove」を確認し、該当プロジェクトが設定されているかチェック
 
-Markersでエラーが出ていたら
+
+● Markersでエラーが出ていたら
 Markersビューでエラー項目を右クリック → Quick Fix 試行
 
-Eclipseの環境構築時、既存のTomcatがあっても削除して再追加することでエラーを防ぐ
 
-Eclipseをクリーン実行する方法
+● Eclipseの環境構築時、既存のTomcatがあっても削除して再追加することでエラーを防ぐ
+
+
+● Eclipseをクリーン実行する方法
 コマンドプロンプト（cmd）で　eclipse.exe -clearPersistedState -clean　を入力

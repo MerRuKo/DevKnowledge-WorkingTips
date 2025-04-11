@@ -1,10 +1,10 @@
-1.値と型まで比較する式 (===)
+● 値と型まで比較する式 (===)
 7 == 7 : ture     8 === 8 : true
 7 == "7" : true   8 === "8" : false
 7 != 7 : false    8 !== "8" : true
 
 
-2.定数の宣言
+● 定数の宣言
 ※ JavaScriptはよく見ると、型を自動的に合わせてくれるところがPythonに似ている部分がある。
 ※ varは古い文法であり、constとletは最近導入されたもの。
 
@@ -17,7 +17,7 @@ const a = 3;
 let a = 3;
 
 
-3.配列
+● 配列
 const toBuy = ["potato", "tomato", "pizza");
 
 console.log(toBuy); 
@@ -29,7 +29,7 @@ console.log(toBuy);
 // potato tomato pizza kimbab
 
 
-4.オブジェクト
+● オブジェクト
 const player = {
    name: "nico",
    points: 10,
@@ -45,7 +45,7 @@ console. log (player.points) ;
 // 25
 
 
-5.関数
+● 関数
 function plus(firstNum, secondNum) {
    console.log (firstNum + secondNum);
 }
@@ -58,7 +58,7 @@ plus (60, 8);
 divide(98, 20);
 
 
-6.オブジェクト + 関数
+● オブジェクト + 関数
 const player = {
    name: "nico",
    sayHello: function (otherName) {
@@ -73,7 +73,7 @@ player.sayHello ("lynn");
 // hello lynn!
 
 
-7.HTML要素の取得方法
+● HTML要素の取得方法
 // idで取得
 const title = document.getElementById("aa");
 
@@ -90,12 +90,12 @@ const title = document.querySelector(".hello h1");
 const title = document.querySelectorAll(".hello h1");
 
 
-8.JavaScriptは常にHTMLと通信する
+● JavaScriptは常にHTMLと通信する
 document.title = “任意の値”;
 ⇒ コンソールで上記を入力すると、ページタイトルがリアルタイムで「任意の値」に変更される。
 
 
-9.関数とアロー関数 (펑션과 애로우펑션)
+● 関数とアロー関数 (펑션과 애로우펑션)
 function add(a, b) {
     return a + b;
 }

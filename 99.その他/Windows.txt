@@ -1,0 +1,16 @@
+● ショートカット
+Win + 方向キー : 画面分割
+Win + L : 画面ロック
+Win + Shift + S : 画面部分キャプチャ
+Shift + Caps Lock : 日本語キーボードで英字の大文字・小文字切替
+Alt + PrintScreen : 今アクティブなウィンドウのみをキャプチャ
+Alt + Win + R : 画面録画
+Shift + Tab : インデントを1段階減らす（Tabの逆）
+
+
+● ドラッグせずにテキストの選択範囲調整
+Shift + クリック
+
+
+● スタートアッププログラム管理
+コマンド実行(Win + R)で、shell:startupを入力
