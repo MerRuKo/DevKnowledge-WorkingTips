@@ -1,0 +1,313 @@
+● C#에서 필드와 프로퍼티의 차이
+프로퍼티(속성) 가 자바에는 없는 개념이어서 헷갈릴 수 있다.
+
+1. 필드 (Field)
+정의: 클래스 내부에서 데이터를 저장하는 변수입니다.
+접근성: 일반적으로 private로 선언되어 외부에서 직접 접근할 수 없습니다.
+사용 목적:
+클래스 내부에서 데이터를 저장하거나 관리하기 위한 용도로 사용됩니다.
+외부에서는 직접 접근하지 못하도록 보호합니다.
+
+2. 프로퍼티 (Property)
+정의: 필드에 대한 캡슐화된 접근자(getter/setter) 를 제공합니다.
+접근성: 일반적으로 public으로 선언되어 외부에서 접근할 수 있습니다.
+사용 목적:
+필드에 대한 접근을 제어합니다.
+데이터를 읽거나 수정할 때 추가 로직을 실행할 수 있습니다.
+외부에서는 필드처럼 보이지만, 실제로는 메서드처럼 동작합니다.
+
+class Person
+{
+    private string name; // private 필드
+
+    public string Name // 프로퍼티
+    {
+        get { return name; } // getter
+        set { name = value; } // setter
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Person person = new Person();
+        person.Name = "Alice"; // 프로퍼티를 통해 값 설정
+        Console.WriteLine(person.Name); // 프로퍼티를 통해 값 읽기
+    }
+}
+
+※ 필드 정의 값인 name이 아닌 프로퍼티 정의 값인 Name 으로 접근.
+
+
+● 상속,구현할때의 키워드
+C#에서는 클래스 상속과 인터페이스 구현 모두 콜론(:) 을 사용하여 표현합니다.
+Java의 extends와 implements를 대신하는 역할을 합니다.
+
+
+● 오버라이드
+C#에서는 반드시 override 키워드를 사용해야 오버라이딩이 이루어집니다.
+그리고 부모 메서드 조건이 virtual 또는 abstract 이어야 합니다.
+Java에서는 @Override 어노테이션을 사용하여 오버라이딩을 명시적으로 표시할 수 있지만, 필수는 아닙니다.
+
+// 추상 클래스
+abstract class VectorBase
+{
+  // 추상 프로퍼티
+  public abstract double X
+  {
+    set;
+    get;
+  }
+}
+
+// 구현 클래스
+class Vector : VectorBase
+{
+  // 구현 메소드
+  public abstract double X
+  {
+    set { x = value; }
+    get { return x; }
+  }
+}
+
+
+● 추상 클래스
+1. 특징
+인스턴스화 불가: 추상 클래스는 직접적으로 인스턴스를 생성할 수 없습니다.
+추상 메서드: 구현 없이 선언만 된 메서드로, 이를 상속받는 클래스에서 반드시 구현해야 합니다.
+일반 메서드 포함 가능: 추상 클래스는 구현된 메서드(비추상 메서드)도 포함할 수 있습니다.
+필드와 속성 포함 가능: 필드, 속성, 생성자 등을 정의할 수 있습니다.
+단일 상속만 가능: C#에서는 클래스 간 단일 상속만 허용됩니다.
+
+2. 사용목적
+공통된 기본 동작과 상태를 공유하는 여러 클래스 간의 계층 구조를 설계할 때 사용됩니다.
+예: 동물(Animal)의 공통 동작(잠자기 등)을 정의하고, 각 동물별로 소리를 내는 방식만 다르게 구현.
+
+3. 예제
+public abstract class Animal {
+    public abstract void MakeSound(); // 추상 메서드
+    public void Sleep() { // 일반 메서드
+        Console.WriteLine("Sleeping...");
+    }
+}
+
+public class Dog : Animal {
+    public override void MakeSound() { // 추상 메서드 구현
+        Console.WriteLine("Woof!");
+    }
+}
+
+
+● 인터페이스
+1. 특징
+구현 없음: 인터페이스는 메서드의 시그니처(선언)만 포함하며, 구현은 이를 상속받는 클래스에서 이루어집니다.
+다중 상속 가능: 하나의 클래스가 여러 인터페이스를 구현할 수 있습니다.
+필드 포함 불가: 인터페이스에는 필드를 정의할 수 없습니다. 대신 프로퍼티, 메서드, 이벤트 등을 포함할 수 있습니다.
+모두 구현 필수 : 인터페이스를 구현하려는 일반 클래스는 인터페이스에 정의된 모든 메서드, 속성, 이벤트 등을 반드시 구현해야 합니다. 안 그러면 컴파일 오류.
+
+2. 사용목적
+서로 다른 클래스들이 동일한 동작을 공유하도록 설계할 때 사용됩니다.
+예: 여러 도형(Rectangle, Circle)이 공통적으로 면적 계산 기능을 제공하도록 설계.
+
+3. 예제
+public interface IAnimal {
+    void MakeSound(); // 선언만 가능
+}
+
+public class Cat : IAnimal {
+    public void MakeSound() { // 인터페이스 메서드 구현
+        Console.WriteLine("Meow!");
+    }
+}
+
+
+● $를 문자열 앞에 붙이면, 문자열 내부에서 {}를 사용해 변수를 삽입하거나 계산 결과를 포함할 수 있습니다.
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // 변수 선언
+        string name = "Alice";
+        int age = 30;
+        double height = 165.5;
+
+        // 문자열 보간 사용
+        Console.WriteLine($"안녕하세요, 제 이름은 {name}입니다.");
+        Console.WriteLine($"나이는 {age}살이고, 키는 {height:F1}cm입니다.");
+        Console.WriteLine($"내년에는 {age + 1}살이 됩니다.");
+        
+        // 계산 결과 포함
+        int x = 3, y = 4;
+        Console.WriteLine($"x와 y의 곱은 {x * y}이고, 합은 {x + y}입니다.");
+    }
+}
+
+
+● 자바와는 다른 get,set 정의/사용 방법
+C#의 get과 set은 프로퍼티(속성, Property)라는 기능을 통해,
+클래스의 필드(Field)에 간결하고 직관적으로 접근할 수 있도록 설계된 문법입니다.
+이는 자바의 Getter/Setter 메서드와 비슷한 역할을 하지만 훨씬 더 축약적이고 간편하게 사용할 수 있습니다.
+
+public class Person {
+    private int age;
+
+    // Property에 정의
+    // 정석 버전
+    public int Age {
+        get { return age; }
+        set { age = value; }
+    }
+    // 축약 버전
+    public int Age { get; set; }
+}
+
+// 실제 사용
+Person person = new Person();
+person.Age = 25; // set 호출
+Console.WriteLine(person.Age); // get 호출
+
+
+● 소멸자 (Destructor、デストラクタ)
+오브젝트 소멸시 실행되는 메서드
+
+class Person
+{
+  // 생성자
+  Person() { }
+  // 소멸자
+  ~Person() { }
+}
+
+
+● delegate(델리게이트)
+메서드를 참조할 수 있는 형식으로, 메서드를 변수처럼 전달하거나 호출할 수 있게 해줍니다.
+이게 발전하면 람다식.
+
+public class Program
+{
+    public delegate void MyDelegate(string message); // MyDelegate라는 형식(타입)이 생긴다.
+
+    public static void Main(string[] args)
+    {
+        Execute(PrintMessage, "Hello from Delegate!");
+        // PrintMessage: 델리게이트로 참조할 메서드
+        // "Hello from Delegate!": 메시지 문자열
+    }
+
+    public static void Execute(MyDelegate del, string message) // MyDelegate 타입을 인수로 받고있다.
+    {
+        del(message); // 전달받은 델리게이트 호출
+    }
+
+    public static void PrintMessage(string message)
+    {
+        Console.WriteLine(message);
+    }
+}
+
+
+● 람다식(Lambda Expression)
+함수를 변수처럼 다룰 수 있는 표현식으로 익명 함수(Anonymous Function) 를 간단히 표현하는 방법.
+특정 작업을 수행하는 메소드를 정의하지 않고도 바로 사용할 수 있습니다.
+
+1.람다식의 일반적인 형태
+(매개변수) => { 실행문 }
+(int x) => { Console.WriteLine(x); }
+
+2.람다식의 기본 문법
+매개변수: 람다식 왼쪽에 위치하며, 함수가 입력받는 값입니다.
+람다 연산자 (=>): 매개변수와 실행문을 구분합니다.
+실행문 또는 반환값: 람다식 오른쪽에 위치하며, 함수가 수행할 작업입니다.
+
+3. 문법
+① 매개변수가 하나일 때: 괄호 생략 가능.
+x => Console.WriteLine(x); // x를 출력
+② 실행문이 한 줄일 때: 중괄호 생략 가능.
+x => x * x; // x의 제곱을 반환
+③ 반환값이 있을 때: return 생략 가능.
+(x, y) => x + y; // 두 숫자의 합을 반환
+
+4. 예제
+① 매개변수와 반환값이 없는 람다식
+() => Console.WriteLine("Hello, Lambda!");
+위 코드는 매개변수가 없으며 "Hello, Lambda!"를 출력합니다.
+② 매개변수가 있는 람다식
+x => x * 2;
+위 코드는 입력받은 숫자 x를 두 배로 만들어 반환합니다.
+③ 매개변수와 반환값이 있는 람다식
+(x, y) => x + y;
+위 코드는 두 숫자 x와 y를 더해 반환합니다.
+
+5. 실제 활용
+① LINQ / 데이터 처리 (Java의 Stream)
+var numbers = new[] { 1, 2, 3, 4 };
+var evenNumbers = numbers.Where(x => x % 2 == 0);
+위 코드는 배열에서 짝수를 필터링합니다.
+데이터를 변환하거나 필터링할 때 유용합니다.
+② 콜백 함수
+button.Click += (sender, e) => Console.WriteLine("Button clicked!");
+이벤트나 비동기 작업에서 콜백으로 사용됩니다.
+
+
+● partial
+클래스를 여러 파일에 나누어 정의할 수 있도록 합니다.
+주로 Windows Forms 또는 WPF 프로젝트에서 자동 생성된 코드와 사용자 정의 코드를 분리하는 데 사용됩니다.
+
+// File1.cs
+public partial class CmkModelEditor
+{
+    public void Method1() { }
+}
+
+// File2.cs
+public partial class CmkModelEditor
+{
+    public void Method2() { }
+}
+
+// 컴파일 시 CmkModelEditor는 Method1과 Method2를 모두 포함함
+
+
+● internal
+씨샵의 기본 접근제어자. 자바의 default와 유사.
+동일한 어셈블리(자바의 project) 내에서만 접근 가능. 다른 어셈블리에서는 접근 불가.
+
+
+● +=의 역할
+이벤트(Event) 또는 델리게이트에 핸들러를 추가하거나 등록할 때 사용됩니다.
+이 연산자는 기존의 이벤트에 새로운 처리기를 연결하는 역할을 합니다.
+
+View.NavigationService.Navigated += (s, e) =>
+{
+    CanNavigate = false;
+};
+
+1. View.NavigationService.Navigated
+이 부분은 네비게이션 완료 이벤트를 나타냅니다.
+Navigated는 WPF의 NavigationService 클래스에서 제공하는 이벤트로,
+페이지 이동이 완료되었을 때 발생합니다.
+
+2. (s, e) => { CanNavigate = false; }
+이 코드는 람다식(Lambda Expression) 으로 작성된 이벤트 핸들러입니다.
+s: 이벤트를 발생시킨 객체(여기서는 NavigationService).
+e: 네비게이션 이벤트와 관련된 데이터를 담고 있는 객체(NavigationEventArgs).
+
+3. += (s, e) => { ... }
+이 구문은 Navigated 이벤트에 새로운 핸들러를 추가합니다.
+즉, 네비게이션이 완료될 때마다 이 핸들러가 실행되어 CanNavigate = false; 를 호출,
+더 이상의 네비게이션을 막습니다.
+
+4. 왜 +=를 사용하는가?
+하나의 이벤트에 여러 개의 핸들러를 등록할 수 있습니다.
+View.NavigationService.Navigated += Handler1;
+View.NavigationService.Navigated += Handler2;
+
+
+● 부모 생성자 호출
+public DetailPageViewModelAbstract(Page view) : base(view)
+자바에선 super() 로만 부모생성자를 호출할 수 있지만,
+씨샵에서는 자식생성자에 : base 를 붙여서 호출한다.
+객체가 생성되면 부모생성자가 먼저 실행된 후 그 다음 자식생성자를 실행한다.

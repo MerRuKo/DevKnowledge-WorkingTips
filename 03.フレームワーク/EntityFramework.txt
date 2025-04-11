@@ -1,0 +1,27 @@
+● 뷰모델 정의 후 테이블 업데이트
+① .NET CLI 를 쓰기 위해 .NET SDK 를 설치하고,
+cmd에서 dotnet tool install --global dotnet-ef 를 쳐서
+Entity Framework Core의 명령줄 도구를 설치한다.
+
+② DB기동 (도커일 경우)
+우분투에서 도커에 인스톨한 DB로 이동 후 DB기동
+cd ~/Docker/SQLServer2019/
+docker compose start
+
+③ VisualStudio에서 파워쉘로 이동한 뒤 Context로 이동.
+cd ./SunHouseRecipiesSystem.Context
+ 
+④ EF Core가 데이터 모델(코드)과 데이터베이스 스키마 간의 차이를 비교하여,
+변경 사항을 반영하기 위한 코드를 생성 (새로운 마이그레이션 생성)
+dotnet ef migrations add Ver1.0.0.0001
+
+⑤ 이전 명령(dotnet ef migrations add)으로 생성된 마이그레이션 파일의 내용을 실제 DB에 적용
+dotnet ef database update
+
+
+● DbContext
+EF Core에서 데이터를 읽고 쓰기 위해서 반드시 필요합니다.
+여러 스레드에서 동일한 DbContext를 사용하는 경우 충돌이 발생할 수 있으므로,
+생성해놓고 계속 쓰는게 아니라 매번 필요한 시점에 새 DbContext를 생성하여 씁니다.
+
+protected override DbContext CreateDbContext() => Ctx.CreateDbContext();

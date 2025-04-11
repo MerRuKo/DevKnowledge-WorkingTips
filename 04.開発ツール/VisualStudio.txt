@@ -1,0 +1,12 @@
+● 단축키
+ctrl + c : 드래그 필요없이 커서줄의 모든 코드 복사
+ctrl + shift  + L : 한줄삭제
+ctrl + shift  + F : 소스검색
+ctrl + , : 리소스검색
+ctrl + - : 전 소스로 이동
+ctrl + shift + - : 후 소스로 이동
+alt + ↑↓ : 소스 이동
+alt + shift + L : 여러번 눌러서 선택된 텍스트 일괄수정 
+
+● 이클립스의 Link with Editor 하는 법 :
+Tools > Options > Projects and Solutions > General > "Track Active Item in Solution Explorer" 체크

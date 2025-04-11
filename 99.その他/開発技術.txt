@@ -113,3 +113,146 @@ Mockと似ているが、より高機能なプログラム
 
 ● SFTP (SSH File Transfer Protocol)
 FileZilla、WinSCP、Puttyなどのツールが代表例
+
+
+● .NET (닷넷)
+자바의 JVM 과 같은 역할로 마이크로소프트에서 개발한 소프트웨어 개발 플랫폼, 프레임워크.
+.NetFramework : Windows 전용의 옛날 프레임워크
+.NET : OSS(오픈 소스 소프트웨어) 멀티플랫폼의 새로운 프레임워크
+
+활용 분야 :
+데스크톱 애플리케이션(WPF, WinForms)
+웹 애플리케이션(ASP.NET)
+모바일 앱(Xamarin)
+클라우드 서비스(Azure와 통합)
+
+
+● .NET SDK (Software Development Kit)
+.NET 애플리케이션 및 라이브러리를 개발하기 위한 도구와 라이브러리의 집합.
+이를 통해 개발자는 애플리케이션을 빌드, 실행, 배포할 수 있습니다.
+
+주요 구성 요소
+.NET CLI (Command Line Interface) : 명령줄에서 프로젝트를 생성, 빌드, 실행하는 데 사용됩니다.
+.NET 런타임 및 라이브러리 : 애플리케이션 실행에 필요한 환경과 기본 클래스 라이브러리를 제공합니다.
+dotnet 드라이버 : CLI 명령 실행의 중심 역할을 합니다.
+
+
+● WPF(Windows Presentation Foundation)
+Windows 데스크톱 애플리케이션 개발을 위한 .NET 기반 프레임워크
+MVVM(Model-View-ViewModel) 패턴을 지원하여 UI와 비즈니스 로직의 명확한 분리를 가능
+고성능 그래픽 처리가 가능, 비동기 처리를 기본, 모던한 디자인
+디자인 언어는 XAML(XML 기반 언어)을 사용
+
+
+● MVVM(Model-View-ViewModel) 패턴
+ViewModel:View와는 데이터 바인딩으로 연결되어 있어, 데이터가 변경되면 자동으로 UI가 업데이트 됩니다
+MVC에서는 Controller가 수동으로 데이터를 업데이트해야 하지만, 
+MVVM은 데이터 바인딩을 통해 Model과 UI를 자동으로 동기화합니다
+View와 Model 간의 의존성을 완전히 제거하여 더 독립적인 설계를 제공
+
+
+● ORM(Object-Relational Mapping)
+ORM은 객체 지향 프로그래밍(OOP)에서 사용하는 객체와
+관계형 데이터베이스(RDB)의 테이블을 매핑(연결)하는 기술로,
+SQL 쿼리 없이도 객체를 통해 데이터베이스를 조작할 수 있게 해주는 도구입니다.
+즉 CRUD를 쿼리로 하는게 아니라 개발언어로 하는 것.
+
+
+● Entity Framework (EF)
+NET 환경에서 ORM을 구현한 프레임워크입니다.
+EF를 사용하면 C#과 같은 객체 지향 언어로 데이터베이스와 상호작용할 수 있습니다.
+데이터베이스 테이블을 C# 클래스와 매핑하여, 
+SQL 대신 LINQ로 데이터를 조회하거나 조작할 수 있습니다.
+SQL 문법에 대한 깊은 이해 없이도 데이터베이스 작업 가능.
+EF 데이터 모델을 구성할 때는 Data Annotation과 Fluent API 두 가지 방법을 사용할 수 있다.
+
+
+● LINQ(Language Integrated Query)
+.NET 언어(C#, VB.NET 등)에 통합된 쿼리 기능으로, 데이터를 쿼리하고 조작하기 위한 강력한 도구입니다. 
+LINQ는 SQL과 유사한 구문을 사용합니다.
+
+var numbers = new int[] { 1, 2, 3, 4, 5 };
+
+var evenNumbers = numbers.Where(num => num % 2 == 0);
+
+foreach (var n in evenNumbers)
+{
+    Console.WriteLine(n); // 출력: 2, 4
+}
+
+
+● Data Annotation
+기본 키, 외래 키, 필수 필드 등 간단한 설정만이 가능하고 직접 어노테이션을 부여해서 쓴다.
+
+[Key] // 기본 키로 설정
+[Column("社員ID", Order = 0, TypeName = "char(16)")] // 컬럼 이름, 순서, 데이터 유형 설정
+public string UserCode
+{
+    public int Id { get; set; }
+}
+
+
+● Fluent API
+복합키 같은 설정도 가능하고 DbModelBuilder, ModelBuilder 클래스를 통해 제공된다.
+
+public class ApplicationDbContext : DbContext
+{
+    public DbSet<Student> Students { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        // 테이블 이름 설정
+        modelBuilder.Entity<Student>()
+            .ToTable("StudentsTable");
+
+        // 기본 키 설정
+        modelBuilder.Entity<Student>()
+            .HasKey(s => s.Id);
+
+        // 속성 매핑 및 제약 조건 설정
+        modelBuilder.Entity<Student>()
+            .Property(s => s.Name)
+            .HasColumnName("StudentName")
+            .IsRequired()
+            .HasMaxLength(100);
+    }
+}
+
+
+● 우분투(Ubuntu)
+리눅스 기반의 무료/오픈소스 운영체제
+노트북에 Windows 운영 체제가 설치되어 있는데 Ubuntu를 추가로 설치했다는 것은,
+보통 듀얼 부팅 환경을 구축했다는 것을 의미합니다.
+이는 한 대의 컴퓨터에서 두 개의 운영 체제를 사용할 수 있도록 설정한 것입니다.
+우분투를 설치한 이유는 리눅스 기반 개발 환경이나 WSL2(Windows Subsystem for Linux) 활성화
+
+
+● Docker
+1.애플리케이션과 그 실행에 필요한 모든 환경(코드, 라이브러리, 설정 등)을
+하나의 컨테이너(Container)라는 독립된 단위로 패키징하여 실행할 수 있게 해주는 컨테이너 기반 가상화 플랫폼
+애플리케이션을 어디서나 실행할 수 있도록 포장하는 상자
+예를 들어, 개발자가 만든 프로그램이 특정 환경(운영체제, 라이브러리 등)에서만 잘 동작한다면,
+Docker를 사용해 필요한 환경을 컨테이너에 담아 다른 컴퓨터에서도 동일하게 실행되도록 할 수 있습니다.
+2.Windows용의 DockerDesktop가 유료가 됐으므로,
+Windows에 Linux/Ubuntu(Windows Subsystem for Linux) 를 구축하고, 그 위에 Docker를 설치한다.
+그래서 먼저 우분투의 설치를 위해 WSL2(Windows Subsystem for Linux) 를 설치하고,
+우분투 터미널 창의 커맨드 입력을 통해 Docker를 설치한다.
+3.윈도우에서 우분투-도커 구축 순서
+①WSL2(Windows Subsystem for Linux) 를 설치
+②리눅스 명령어(wsl)를 쓸 수 있게 됐으므로 cmd에서 우분투 설치
+③우분투 터미널창에서 커맨드 입력을 통해 도커를 설치/실행
+4.Docker의 "이미지"는 사진이 아니고 애플리케이션 실행에 필요한 모든 환경과 파일을 포함한 템플릿을 의미.
+
+
+● 2024년 DBMS 랭킹
+1. Oracle (RDBMS)
+2. MySQL (RDBMS)
+3. Microsoft SQL Server (RDBMS)
+4. PostgreSQL (RDBMS)
+5. MongoDB (NoSQL)
+6. Redis (NoSQL)
+
+
+● NuGet 패키지
+Visual Studio와 통합되어 있는 .NET 프레임워크를 위한 오픈소스 패키지 관리자로,
+이를 통해 개발자는 필요한 라이브러리, 유틸리티, API 등을 쉽게 다운로드하고 관리할 수 있습니다. 

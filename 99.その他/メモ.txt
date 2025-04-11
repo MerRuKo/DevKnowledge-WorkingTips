@@ -24,17 +24,6 @@ SQLException: Invalid column type: 1111が出ていたら、
 ⇒ブラウザの開発者ツール(F12)でコンソールを確認しろ！
 
 
-●　sudo (SuperUser DO, Linuxコマンド)
-管理者権限でアカウント制限を無視し、別にアカウントを設定して強制実行する時に使われる。 
-本来のアカウントに入って実行する時は必要ない。
-※　「一般User・権限なし」でログインした場合のバッチ実行
-権限ないので、sudoを使ってbatch26(SuperUser)として実行。
-sudo -u batch26 ./ADM_USR_B_62011A.sh
-※　「SuperUser・root・権限あり」でログインした場合のバッチ実行
-権限あるので、なんにも無しで。
-./ADM_USR_B_62011A.sh
-
-
 ●　A5で1行になっている長いクエリを綺麗に整形：Ctrl + Q
 
 
