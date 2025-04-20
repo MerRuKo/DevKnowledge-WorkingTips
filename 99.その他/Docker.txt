@@ -2,14 +2,17 @@
 docker ps : 현재 실행중인 컨테이너
 docker ps -a : 모든 컨테이너
 
+
 ● 컨테이너 실행
 docker compose start : 기존에 생성된 컨테이너를 다시 시작하는 데 적합.
 docker compose up -d : 새로운 서비스를 생성하거나 기존 서비스를 업데이트 및 실행하는 데 적합.
+
 
 생성/접속방법
 cmk-01@CLO257:~$ cd Docker/SQLServer2019/ <- 컨테이너 디렉토리로 이동
 cmk-01@CLO257:~/Docker/SQLServer2019$ docker compose up -d <- 생성,업데이트
 cmk-01@CLO257:~/Docker/SQLServer2019$ docker compose start <- 시작
+
 
 ● 컨테이너 중지
 docker stop [Container아이디]
