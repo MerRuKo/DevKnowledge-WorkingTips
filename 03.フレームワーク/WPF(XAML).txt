@@ -143,3 +143,59 @@ set { FilteredByDateSchedules = value; ... }
 ●
 Show()는 비모달 창으로 열립니다. 사용자가 여러 창을 동시에 사용할 수 있습니다.
 ShowDialog()는 모달 창으로 열려서, 이 창이 닫히기 전까지는 다른 창과 상호작용할 수 없습니다.
+
+
+● 라벨 정의
+<TextBlock Text="表示バッチ" FontWeight="Bold" Margin="0,0,0,5"/>
+
+
+● 버튼 정의
+               <Button x:Name="btnBatchStart"
+                        Content="バッチ開始"
+                        Width="130"
+                        Height="40"
+                        Margin="0,0,5,0"
+                        Click="btnBatchStart_Click" />
+
+
+● 체크박스 정의
+                    <CheckBox x:Name="chkFLine"
+                              Content="Fライン"
+                              VerticalAlignment="Center"
+                              VerticalContentAlignment="Center"
+                              IsChecked="False"
+                              Checked="chkFLine_Checked"
+                              Unchecked="chkFLine_Unchecked"
+                              Margin="5,0"/>
+
+
+● 라디오오박스 정의
+                    <RadioButton x:Name="chkFLine"
+                                 Content="F"
+                                 VerticalAlignment="Center"
+                                 VerticalContentAlignment="Center"
+                                 IsChecked="False"
+                                 Checked="chkFLine_Checked"
+                                 Unchecked="chkFLine_Unchecked"
+                                 Margin="5,0"/>
+
+
+● 데이트픽커 정의
+                    <DatePicker x:Name="dpDate"
+                                Width="150"
+                                FontSize="16"
+                                SelectedDate="{x:Static sys:DateTime.Now}"
+                                SelectedDateFormat="Short"
+                                DisplayDateStart="2025-04-01"
+                                DisplayDateEnd="2099-12-31"
+                                VerticalContentAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                Margin="0,0,50,0" />
+
+
+● 콤보박스 정의
+                <ComboBox Width="500" HorizontalAlignment="Left" HorizontalContentAlignment="Center">
+                    <ComboBoxItem Content="全て" IsSelected="True"/>
+                    <ComboBoxItem Content="野菜"/>
+                    <ComboBoxItem Content="炊上"/>
+                </ComboBox>
