@@ -16,3 +16,78 @@ cmk-01@CLO257:~/Docker/SQLServer2019$ docker compose start <- 시작
 
 ● 컨테이너 중지
 docker stop [Container아이디]
+
+
+● 우분투-도커로 DB 환경 구축
+******* 우분투 구축 *******
+①제어판 프로그램 및 기능에서 패키지 유효화
+Linux용 Windows 서브시스템
+Hyper-V
+②cmd에서 우분투 설치
+wsl --install -d Ubuntu-22.04
+③우분투 root권한으로 로그인 후 유저 추가
+# sudo adduser cmk-01 
+④디폴트 유저를 만든 유저로 변경
+# echo -e "[user]\ndefault=cmk-01" | sh -c 'cat - > /etc/wsl.conf'
+⑤만든 유저에게 sudo 권한 부여
+gpasswd -a cmk-01 sudo
+
+******* 도커-DB 구축 *******
+#0.우분투 CLI 에서 시작, 사용자 이름을 cmk-01로 설정.
+$ user='cmk-01'
+
+#1.패키지 목록을 최신 상태로 업데이트. 새로운 소프트웨어를 설치하기 전에 항상 실행하는 것이 좋음.
+$ sudo apt update
+
+#2.Docker 설치에 필요한 툴 설치 :
+ca-certificates: 인증서 검증용
+curl: 파일 다운로드
+gnupg: GPG 키 관리
+lsb-release: 배포판 정보 확인용
+$ sudo apt install ca-certificates curl gnupg lsb-release
+
+#3.Docker 저장소를 apt에 안전하게 추가하기 위한 GPG 키를 다운로드하고, docker.gpg 파일로 저장.
+권한을 변경하여 모든 사용자가 읽을 수 있도록 설정.
+$ sudo mkdir -p /etc/apt/keyrings
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+$ sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+#4.Docker의 공식 apt 저장소를 시스템에 등록.
+다시 apt update를 실행하여 Docker 저장소에서 패키지를 검색 가능하게 함.
+$ echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+$ sudo apt update
+
+#5.Docker의 주요 컴포넌트 설치 :
+docker-ce: Docker 커뮤니티 에디션
+docker-ce-cli: 커맨드라인 인터페이스
+containerd.io: 컨테이너 런타임
+$ sudo apt install docker-ce docker-ce-cli containerd.io
+
+#6.Docker Compose V2 플러그인 설치 (docker compose 명령 사용 가능)
+$ sudo apt-get update
+$ sudo apt-get install docker-compose-plugin
+
+#7.사용자를 docker 그룹에 추가하여 비root 사용자도 sudo 없이 Docker 명령을 실행할 수 있게 함.
+$ sudo gpasswd -a $user docker
+
+#docker 그룹에 지정한 사용자가 정상적으로 포함되었는지 확인.
+$ getent group docker
+docker:x:999:($user)ls
+
+#8.Docker 데몬을 수동으로 시작. (시스템 부팅 시 자동으로 실행되도록 설정하는 용도로도 쓰임)
+$ sudo /etc/init.d/docker start
+
+#9.sudo 명령 시 비밀번호 입력을 생략하기 위한 설정.
+$ sudo visudo
+
+#nano에디터가 열리는데, 제일 끝에 밑의 텍스트를 추가하고 Ctrl+X->Y->Enter로 보관.
+docker 그룹에 속한 사용자가 /etc/init.d/docker 명령을 비밀번호 없이 실행할 수 있도록 설정.
+%docker ALL=(ALL)  NOPASSWD: /etc/init.d/docker
+
+#10.WSL에서 Ubuntu에 접속할 때 자동으로 Docker 데몬이 시작되도록 .bashrc 파일에 명령 추가.
+#ユーザーの.bashrcに"sudo /etc/init.d/docker start"を追記
+
+$ echo "sudo /etc/init.d/docker start" >> ~/.bashrc
+
+#WSL2의 Ubuntu 인스턴스를 완전히 종료하여 설정을 적용함. 이후 다시 WSL을 실행하면 Docker가 자동으로 시작됨.
+> wsl --shutdown
